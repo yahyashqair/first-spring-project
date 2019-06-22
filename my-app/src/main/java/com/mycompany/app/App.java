@@ -1,18 +1,13 @@
 package com.mycompany.app;
 
-/**
- * Hello world!
- *
- */
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class App 
-{
-    public static void main( String[] args )
-    {
-		SpringApplication.run(App.class, args);
-        System.out.println( "Hello World!" );
-    }
+public class App {
+   public static void main(String[] args) {
+      ApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
+      person obj = (person) context.getBean("helloWorld");
+      obj.toString();
+   }
 }
